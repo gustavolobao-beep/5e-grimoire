@@ -1,0 +1,18 @@
+{
+  "name": "grimorio-5e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Grimório 5e - sistema de gerenciamento de mesas de D&D 5e (fichas, campanhas, bestiário e rolador de dados)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "seed": "npm run seed --prefix server",
+    "dev": "node scripts/dev.js",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm install --prefix client && npm run build --prefix client"
+  }
+}

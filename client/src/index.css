@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-slate-200 antialiased;
+    background-image:
+      radial-gradient(90% 70% at 50% -10%, rgba(139, 92, 246, 0.13) 0%, rgba(8, 8, 11, 0) 65%),
+      radial-gradient(60% 50% at 100% 0%, rgba(18, 196, 222, 0.07) 0%, rgba(8, 8, 11, 0) 70%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-arcane-500/40 text-white;
+  }
+
+  /* Barra de rolagem discreta, combinando com o tema escuro. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #242833 transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-ink-700;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-600;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-ink-700/80 bg-ink-850/80 shadow-panel backdrop-blur-sm;
+  }
+
+  .panel-head {
+    @apply flex items-center justify-between gap-3 border-b border-ink-700/70 px-4 py-3;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium
+      transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .btn-primary {
+    @apply btn bg-arcane-600 text-white hover:bg-arcane-500 hover:shadow-glow active:scale-[.98];
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink-700 bg-ink-800/60 text-slate-300 hover:border-arcane-500/60 hover:text-white;
+  }
+
+  .btn-danger {
+    @apply btn border border-ember/40 bg-ember/10 text-ember hover:bg-ember/20;
+  }
+
+  .btn-neon {
+    @apply btn border border-neon-500/50 bg-neon-500/10 text-neon-300 hover:bg-neon-500/20;
+  }
+
+  .btn-xs {
+    @apply rounded-md px-2 py-1 text-xs;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-ink-700 bg-ink-900/80 px-3 py-2 text-sm text-slate-100
+      placeholder:text-slate-500 focus:border-arcane-500 focus:outline-none focus:ring-2 focus:ring-arcane-500/25;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border border-ink-700 bg-ink-800/70 px-2.5 py-0.5
+      text-xs font-medium text-slate-300;
+  }
+
+  .chip-arcane {
+    @apply chip border-arcane-500/40 bg-arcane-500/10 text-arcane-200;
+  }
+
+  .stat-tile {
+    @apply flex flex-col items-center justify-center rounded-lg border border-ink-700/80 bg-ink-900/70 px-2 py-2.5;
+  }
+
+  /* --- Diagrama hexagonal do núcleo (atributos) ------------------------- */
+  .hex-clip {
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+
+  /* --- Brasão/escudo usado para a Classe de Armadura -------------------- */
+  .crest-clip {
+    clip-path: polygon(50% 0, 100% 16%, 100% 52%, 50% 100%, 0 52%, 0 16%);
+  }
+
+  .section-title {
+    @apply font-display text-sm uppercase tracking-[0.18em] text-arcane-200;
+  }
+
+  /* Alvo clicável de rolagem: tudo que soma modificadores na ficha. */
+  .rollable {
+    @apply cursor-pointer rounded-md border border-transparent transition-colors duration-150
+      hover:border-arcane-500/50 hover:bg-arcane-500/10 focus:outline-none focus-visible:border-arcane-500;
+  }
+}
